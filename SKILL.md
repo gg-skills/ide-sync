@@ -42,6 +42,7 @@ Run from the target repository root:
 
 ```bash
 # Full sync, matching the composed root contract.
+# Runner alternatives: bunx tsx / pnpm dlx tsx / deno run -A npm:tsx / node --import tsx / yarn dlx tsx
 npx tsx .agents/skills/ide-sync/scripts/sync.ts
 
 # Individual lanes.
@@ -181,3 +182,5 @@ Before finalizing, verify:
 - `scripts/docs-sync/` — generated documentation-map rule projection.
 - `scripts/platform/` — package submodule sync support.
 - `references/quick-reference.md` — concise command and adoption checklist.
+
+[^rt]: `npx tsx` accepts any standard runner — `bunx tsx`, `pnpm dlx tsx`, `deno run -A npm:tsx`, `node --import tsx`, or `yarn dlx tsx`. The first five auto-fetch `tsx` on demand; only `node --import tsx` requires `tsx` to be installed locally first (`npm i -D tsx`, or `npm i -g tsx` if you cannot reach the npm registry). Bun users can also skip `tsx` entirely and run TypeScript directly via `bun <script>`. Pick whichever your project ships. The canonical runtime decision table lives in the `skills-manager` skill under `Runtime Selection` (only available when working in the full `gg-skills` monorepo).
